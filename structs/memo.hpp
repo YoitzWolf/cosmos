@@ -28,19 +28,4 @@ std::ostream& operator<<(std::ostream &os, const PathMemory<Types...> &memo) {
 }
 */
 
-template<typename ...Ts, size_t ...Is>
-  std::ostream & ost_tuple_impl(std::ostream& os, std::tuple<Ts...> tuple, std::index_sequence<Is...>)
-  {
-      //static_assert(sizeof...(Is)==sizeof...(Ts),"Indices must have same number of elements as tuple types!");
-      //static_assert(sizeof...(Ts)>0, "Cannot insert empty tuple into stream.");
-      auto last = sizeof...(Ts); // assuming index sequence 0,...,N-1
-      return ((os << std::get<Is>(tuple) << (Is != last-1 ? "; " : "]")),...);
-  }
-
-template<typename ...Ts>
-std::ostream & operator<<(std::ostream& os, const std::tuple<Ts...> & tuple) {
-    return ost_tuple_impl(os<<"[", tuple, std::index_sequence_for<Ts...>{});
-}
-
-
 #endif

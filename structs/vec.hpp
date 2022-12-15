@@ -38,6 +38,10 @@ class Vec {
 
         void set_coord(size_t index, T val);
 
+        T length();
+        T sqlength();
+        void normalize();
+
         Vec<T, N, R> operator+(Vec<T, N, R> other);
         Vec<T, N, R> operator-(Vec<T, N, R> other);
 

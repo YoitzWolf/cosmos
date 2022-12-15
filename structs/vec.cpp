@@ -1,3 +1,4 @@
+#include <math.h>
 #include "vec.hpp"
 
 
@@ -11,7 +12,6 @@ template VECTORTEMPLATE
 Vec<T, N, R>::Vec(T val[N]) {
     for(size_t i=0; i<N; i++) this->dat[i] = val[i];
 }
-
 
 template VECTORTEMPLATE
 Vec<T, N, R>::Vec() {}
@@ -32,15 +32,36 @@ T Vec<T, N, R>::get_coord(size_t index) {
 }
 
 template VECTORTEMPLATE
-T& Vec<T, N, R>::at(const size_t index) { 
-    return this->dat.at(index);  
-}
-
-template VECTORTEMPLATE
 Vec<T, N, R> Vec<T, N, R>::filled(T val) { 
     Vec<T, N, R> v;
     for (int i =0; i<N; i++) v.set_coord(i, val);
     return v;  
+}
+
+
+template VECTORTEMPLATE
+T Vec<T, N, R>::length(){
+    T r = 0;
+
+    for(int i=0; i<N; i++){
+        r += this->dat[i]*this->dat[i];
+    }
+
+    return sqrt(r);
+}
+
+template VECTORTEMPLATE
+T Vec<T, N, R>::sqlength(){
+    T r = 0;
+    for(int i=0; i<N; i++){
+        r += this->dat[i]*this->dat[i];
+    }
+    return r;
+}
+
+template VECTORTEMPLATE
+void Vec<T, N, R>::normalize(){
+    (*this) /= this->length();
 }
 
 template VECTORTEMPLATE
@@ -94,6 +115,8 @@ void Vec<T, N, R>::operator/=(T other) { //TODO
 
 template VECTORTEMPLATE
 std::ostream& operator<<(std::ostream& os, Vec<T, N, R> & v){
-    for (size_t i=0; i<N; i++ ) os <<v.get_coord(i)<<" ";
+    os << "(";
+    for (size_t i=0; i<N; i++ ) os <<v.get_coord(i)<<( i<N-1 ? "; ":"");
+    os << ")";
     return os;
 }
