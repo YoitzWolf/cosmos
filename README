@@ -1,0 +1,10 @@
+You need C++ 17 to use it correctly
+
+For prinring lots you can use python (see ./analysers)
+or change output in vec.cpp and memo.cpp files as you need
+
+Before run analysers you have to create folder "./output"
+after that run the simulation
+
+
+Razmyslov K. 12.2022
