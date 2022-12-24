@@ -1,5 +1,5 @@
 #include <iostream>
-#include "memo.hpp"
+#include "structs/memo.hpp"
 
 //int main(){
 //    return 0;
@@ -11,11 +11,10 @@ void PathMemory<Types...>::push(Types... res){
 }
 
 
-template <class ... Types>
-PathMemory<Types...>::PathMemory(){}
-
-template <class ... Types>
-PathMemory<Types...>::~PathMemory(){}
+//template <class ... Types>
+//PathMemory<Types...>::PathMemory(){}
+//template <class ... Types>
+//PathMemory<Types...>::~PathMemory(){}
 
 
 template <class ... Types>

@@ -1,13 +1,11 @@
 //#include "errs.hpp"
 
 //#include <boost/outcome.hpp>
+#include <iostream>
 #include <stdlib.h>
 #include <type_traits>
 //#include <system_error>
 //namespace outcome = BOOST_OUTCOME_V2_NAMESPACE;
-
-
-#pragma once
 
 #ifndef VEC
     #define VEC

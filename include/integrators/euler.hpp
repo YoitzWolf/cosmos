@@ -1,4 +1,4 @@
-#include "./structs/structs.hpp"
+#include "structs/structs.hpp"
 
 #ifndef EULERHPP
     #define EULERHPP

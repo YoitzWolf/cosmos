@@ -1,5 +1,5 @@
 #include <math.h>
-#include "vec.hpp"
+#include "structs/vec.hpp"
 
 
 //template<

@@ -28,4 +28,17 @@ std::ostream& operator<<(std::ostream &os, const PathMemory<Types...> &memo) {
 }
 */
 
+template <class ... Types>
+PathMemory<Types...>::PathMemory(){}
+
+template <class ... Types>
+PathMemory<Types...>::~PathMemory(){}
+
+
+template<typename ...Ts, size_t ...Is>
+std::ostream & ost_tuple_impl(std::ostream& os, std::tuple<Ts...> tuple, std::index_sequence<Is...>);
+
+template<typename ...Ts>
+std::ostream & operator<<(std::ostream& os, const std::tuple<Ts...> & tuple);
+
 #endif
