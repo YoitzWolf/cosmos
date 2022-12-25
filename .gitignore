@@ -132,3 +132,5 @@ build/src/structs/CMakeFiles/structs.dir/memo.cpp.obj.d
 build/src/structs/CMakeFiles/structs.dir/progress.make
 build/src/structs/CMakeFiles/structs.dir/vec.cpp.obj
 build/src/structs/CMakeFiles/structs.dir/vec.cpp.obj.d
+output/euler.txt
+build/.cmake/api/v1/reply/index-2022-12-25T12-49-58-0291.json

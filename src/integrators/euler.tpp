@@ -17,9 +17,10 @@ void euler_solver(
     T time = 0;
     tVec coord = y_0;
     tVec velocity = dy_0;
+
     tVec acceleration = f(coord, velocity, time);
 
-    if(memorize) pathmem -> push ( 0, time, coord, velocity, acceleration );
+    if(memorize) pathmem -> push ( 0, time, coord, velocity, acceleration);
 
     for (std::size_t i=1; i<max_iterations; i++) {
         acceleration = f(coord, velocity, time);
@@ -28,7 +29,7 @@ void euler_solver(
         velocity = velocity + acceleration * dt;
         time = time + dt;
 
-        if(memorize) pathmem -> push ( i, time, coord, velocity, acceleration );
+        if(memorize) pathmem -> push ( i, time, coord, velocity, acceleration);
     }
 
 };
