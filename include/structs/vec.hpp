@@ -56,4 +56,5 @@ class Vec {
 template VECTORTEMPLATE
 std::ostream& operator<<(std::ostream& os, const Vec<T, N, R> & v);
 
+#include "structs/vec.tpp"
 #endif

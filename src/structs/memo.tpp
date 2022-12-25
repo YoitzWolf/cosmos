@@ -5,6 +5,8 @@
 //    return 0;
 //}
 
+
+
 template <class ... Types>
 void PathMemory<Types...>::push(Types... res){
     this->data.push_back(std::make_tuple(res...));
@@ -42,3 +44,7 @@ template<typename ...Ts>
 std::ostream & operator<<(std::ostream& os, const std::tuple<Ts...> & tuple) {
     return ost_tuple_impl(os<<"", tuple, std::index_sequence_for<Ts...>{});
 }
+
+
+
+//template class PathMemory<unsigned long long, double, Vec<double, 3ull, double>, Vec<double, 3ull, double>, Vec<double, 3ull, double> >;

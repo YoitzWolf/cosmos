@@ -11,14 +11,22 @@ set(CMAKE_CXX_STANDARD 17)
 
 
 include_directories (${CMAKE_SOURCE_DIR}/include)
+include_directories (${CMAKE_SOURCE_DIR}/src)
 # include_directories (${CMAKE_SOURCE_DIR}/include/structs)
-link_directories(${CMAKE_SOURCE_DIR}/src/structs)
-link_directories(${CMAKE_SOURCE_DIR}/src/integrators)
+# link_directories(${CMAKE_SOURCE_DIR}/src/structs)
+# link_directories(${CMAKE_SOURCE_DIR}/src/integrators)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
 
+# include(src/integrators/CMakeLists.txt)
+# include(src/structs/CMakeLists.txt)
+# include(Src/CMakeLists.txt)
 
-# set(SOURCES test.cpp lib1.cpp lib2.cpp)
-# file(GLOB Scrs ${CMAKE_SOURCE_DIR}/src/structs/*.cpp ${CMAKE_SOURCE_DIR}/src/integrators/*.cpp)
+# target_link_libraries (/src/structs structs)
 
-add_executable(cosmos ${CMAKE_SOURCE_DIR}/src/structs/vec.cpp ${CMAKE_SOURCE_DIR}/src/structs/memo.cpp ${CMAKE_SOURCE_DIR}/src/integrators/euler.cpp main.cpp) #src/structs/vec.cpp src/structs/memo.cpp src/integrators/euler.cpp
+add_executable(cosmos main.cpp #image.png
+# ${structs_source} 
+    # src/structs/vec.cpp
+    # src/structs/memo.cpp
+    # src/integrators/euler.cpp
+)

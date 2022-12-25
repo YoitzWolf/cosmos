@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+
 #include "structs/structs.hpp"
 #include "integrators/integrators.hpp"
 
@@ -9,7 +10,7 @@
 // G = 6.6743 × 10^-11 
 // M = 5.9722 × 10^24
 // GM = 39.86025446 * 10^13 = *10^5
-/*
+
 Vec<double, 3> f(Vec<double, 3> y, Vec<double, 3> dy, double t){
     auto v = y;
     v.normalize();
@@ -25,8 +26,8 @@ int main(){
     std::cout<<"COSMOS:: v"<<COSMOS_VERSION<<std::endl;
 
     auto memo = new PathMemory<size_t, double, Vec<double, 3>, Vec<double, 3>, Vec<double, 3>>();
-    std::cout<<memo -> get_record(0);
-    /*auto r = Vec<double, 3>::filled(0);
+    
+    auto r = Vec<double, 3>::filled(0);
     r.set_coord(1, 6378100+408000   );//432650 35 800 //6371000+408000 //6378100+408000
                 // 35800000
     auto v = Vec<double, 3>::filled(0);

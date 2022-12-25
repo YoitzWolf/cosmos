@@ -41,4 +41,7 @@ std::ostream & ost_tuple_impl(std::ostream& os, std::tuple<Ts...> tuple, std::in
 template<typename ...Ts>
 std::ostream & operator<<(std::ostream& os, const std::tuple<Ts...> & tuple);
 
+
+#include "structs/memo.tpp"
 #endif
+
