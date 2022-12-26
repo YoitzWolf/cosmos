@@ -12,11 +12,17 @@ void predictor_corrector_solver(
     bool memorize/*=false*/,
     PathMemory<std::size_t, T, Vec<T, N, R>, Vec<T, N, R>, Vec<T, N, R>> *pathmem/*=NULL*///std::nullptr_t
 ) {
-    /*typedef Vec<T, N, R> tVec;
+    typedef Vec<T, N, R> tVec;
 
     T time = 0;
-    tVec coord = y_0;
-    tVec velocity = dy_0;
+
+    tVec pred_velocity = dy_0;
+    tVec pred_coord    = y_0;
+
+    tVec coord = y_0; //corrected
+    tVec velocity = dy_0; //corrected
+
+    tVec last_velocity = dy_0; //corrected
 
     tVec acceleration = f(coord, velocity, time);
 
@@ -24,13 +30,20 @@ void predictor_corrector_solver(
 
     for (std::size_t i=1; i<max_iterations; i++) {
         acceleration = f(coord, velocity, time);
+        
+        pred_velocity = velocity + acceleration * dt;
+        pred_coord    = coord + pred_velocity * dt;
 
-        coord = coord + velocity * dt;
-        velocity = velocity + acceleration * dt;
+        last_velocity = velocity;
+        velocity = velocity + (acceleration + f(pred_coord, pred_velocity, time+dt)) / 2 * dt;
+
+        coord = coord + (velocity + last_velocity) / 2 * dt;
+
+        
         time = time + dt;
 
         if(memorize) pathmem -> push ( i, time, coord, velocity, acceleration);
     }
-*/
+
 };
 //*/
