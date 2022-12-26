@@ -3,8 +3,8 @@
 #include <iomanip>
 #include <sstream>
 
-#include "structs/structs.hpp"
-#include "integrators/integrators.hpp"
+#include "include/structs/structs.hpp"
+#include "include/integrators/integrators.hpp"
 
 
 # define COSMOS_VERSION "0.1a"
@@ -39,7 +39,7 @@ int main(){
     std::cout<<r<<std::endl;
     std::cout<<v<<std::endl;
 
-    euler_solver<double, 3, double>(
+    verlet_solver<double, 3, double>(
         &f,
         v,
         r,
@@ -52,7 +52,7 @@ int main(){
     std::cout<<"OUTPUT::"<<std::endl;
     std::cout<<memo -> size()<<std::endl;
     std::ofstream output;
-    output.open("./output/euler.txt");
+    output.open("./output/verlet.txt");
     output << std::fixed << std::setprecision(16);
     for(size_t i=0; i<N; i++)
         output<<memo -> get_record(i)<<std::endl;

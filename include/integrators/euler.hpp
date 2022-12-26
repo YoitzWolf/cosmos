@@ -1,4 +1,4 @@
-#include "structs/structs.hpp"
+#include "include/structs/structs.hpp"
 
 #ifndef EULERHPP
     #define EULERHPP
@@ -19,5 +19,5 @@ void euler_solver(
     PathMemory<std::size_t, T, Vec<T, N, R>, Vec<T, N, R>, Vec<T, N, R>> *pathmem=NULL//std::nullptr_t
 );
 
-#include "integrators/euler.tpp"
+#include "src/integrators/euler.tpp"
 #endif

@@ -1,9 +1,9 @@
 
-#include "include/integrators/euler.hpp"
+#include "include/integrators/predictor_corrector.hpp"
 
 
 template VECTORTEMPLATE
-void euler_solver(
+void predictor_corrector_solver(
     Vec<T, N, R> (*f)(Vec<T, N, R>, Vec<T, N, R>, T),
     Vec<T, N, R> dy_0,
     Vec<T, N, R> y_0,
@@ -12,7 +12,7 @@ void euler_solver(
     bool memorize/*=false*/,
     PathMemory<std::size_t, T, Vec<T, N, R>, Vec<T, N, R>, Vec<T, N, R>> *pathmem/*=NULL*///std::nullptr_t
 ) {
-    typedef Vec<T, N, R> tVec;
+    /*typedef Vec<T, N, R> tVec;
 
     T time = 0;
     tVec coord = y_0;
@@ -31,6 +31,6 @@ void euler_solver(
 
         if(memorize) pathmem -> push ( i, time, coord, velocity, acceleration);
     }
-
+*/
 };
 //*/

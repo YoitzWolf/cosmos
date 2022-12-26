@@ -10,8 +10,9 @@ set(CMAKE_CXX_STANDARD 17)
 # add_subdirectory(src)
 
 
-include_directories (${CMAKE_SOURCE_DIR}/include)
-include_directories (${CMAKE_SOURCE_DIR}/src)
+include_directories (${CMAKE_SOURCE_DIR}) #/include
+#include_directories (${CMAKE_SOURCE_DIR}/src)
+
 # include_directories (${CMAKE_SOURCE_DIR}/include/structs)
 # link_directories(${CMAKE_SOURCE_DIR}/src/structs)
 # link_directories(${CMAKE_SOURCE_DIR}/src/integrators)

@@ -1,5 +1,5 @@
 #include <iostream>
-#include "structs/memo.hpp"
+#include "include/structs/memo.hpp"
 
 //int main(){
 //    return 0;

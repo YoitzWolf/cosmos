@@ -1,9 +1,9 @@
 
-#include "include/integrators/euler.hpp"
+#include "include/integrators/verlet.hpp"
 
 
 template VECTORTEMPLATE
-void euler_solver(
+void verlet_solver(
     Vec<T, N, R> (*f)(Vec<T, N, R>, Vec<T, N, R>, T),
     Vec<T, N, R> dy_0,
     Vec<T, N, R> y_0,
@@ -19,14 +19,18 @@ void euler_solver(
     tVec velocity = dy_0;
 
     tVec acceleration = f(coord, velocity, time);
+    tVec last_acceleration = acceleration;
 
     if(memorize) pathmem -> push ( 0, time, coord, velocity, acceleration);
 
     for (std::size_t i=1; i<max_iterations; i++) {
+
+        coord = coord + (velocity + acceleration * dt) * dt;
+
+        last_acceleration = acceleration;
         acceleration = f(coord, velocity, time);
 
-        coord = coord + velocity * dt;
-        velocity = velocity + acceleration * dt;
+        velocity = velocity + (acceleration + last_acceleration)/2 * dt;
         time = time + dt;
 
         if(memorize) pathmem -> push ( i, time, coord, velocity, acceleration);

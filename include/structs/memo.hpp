@@ -42,6 +42,6 @@ template<typename ...Ts>
 std::ostream & operator<<(std::ostream& os, const std::tuple<Ts...> & tuple);
 
 
-#include "structs/memo.tpp"
+#include "src/structs/memo.tpp"
 #endif
 

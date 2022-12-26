@@ -11,7 +11,7 @@ T = []
 KINETIC = []
 POTENTIAL = []
 ENERGY = []
-with open("./output/euler.txt", "r") as file:
+with open("./output/verlet.txt", "r") as file:
     for line in file.readlines():
         # (
         #     ind,
