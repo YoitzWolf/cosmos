@@ -88,7 +88,24 @@ if "-gp" in sys.argv:
     fig.savefig(f"./images/{NAME}-energy.eps")
 
 if "-tbs" in sys.argv:
-    pass
+    TBF = "./tables"
+
+    tHeaders = [
+        "attr",
+        "min",
+        "max",
+        "$\Delta$",
+        "mid",
+        "deviation"
+    ]
+
+    totex.tabtex.convertFromData(
+        TBF,
+        "stat",
+        "Simulated Data Statistics",
+        tHeaders,
+        tData
+    )
 
 # plt.show()
 
