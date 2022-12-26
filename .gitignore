@@ -139,3 +139,11 @@ build/.cmake/api/v1/reply/index-2022-12-26T08-37-34-0927.json
 build/.cmake/api/v1/reply/target-cosmos-Debug-e4b5955b1e5636cf8644.json
 output/verlet.txt
 output/predcorr.txt
+analysers/totex/__pycache__/__init__.cpython-39.pyc
+analysers/totex/__pycache__/strutils.cpython-39.pyc
+analysers/totex/__pycache__/tabtex.cpython-39.pyc
+analysers/totex/__pycache__/totex.cpython-39.pyc
+images/euler-energy.eps
+images/euler-path-diforbit.eps
+images/euler-path-diforbit.pdf
+images/euler-path.eps
