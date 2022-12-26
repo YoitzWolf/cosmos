@@ -39,11 +39,11 @@ int main(){
     std::cout<<r<<std::endl;
     std::cout<<v<<std::endl;
 
-    euler_solver<double, 3, double>(
+    predictor_corrector_solver<double, 3, double>(
         &f,
         v,
         r,
-        0.01,
+        -0.01,
         N,
         true,
         memo
@@ -52,7 +52,7 @@ int main(){
     std::cout<<"OUTPUT::"<<std::endl;
     std::cout<<memo -> size()<<std::endl;
     std::ofstream output;
-    output.open("./output/euler.txt");
+    output.open("./output/minus-predcorr.txt");
     output << std::fixed << std::setprecision(16);
     for(size_t i=0; i<N; i++)
         output<<memo -> get_record(i)<<std::endl;
