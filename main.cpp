@@ -30,16 +30,16 @@ int main(){
     auto memo = new PathMemory<size_t, double, Vec<double, 3>, Vec<double, 3>, Vec<double, 3>>();
     
     auto r = Vec<double, 3>::filled(0);
-    r.set_coord(1, 6378100+408000);//432650 35 800 //6371000+408000 //6378100+408000
+    r.set_coord(1, 6378100+408000);// 6378100+408000
                 // 35800000
     auto v = Vec<double, 3>::filled(0);
-    v.set_coord(0, 7664.078);// 7910 7777.7778 7910
+    v.set_coord(0, 7664.078);// 7664.078
     size_t N = 750000;
 
     std::cout<<r<<std::endl;
     std::cout<<v<<std::endl;
 
-    predictor_corrector_solver<double, 3, double>(
+    euler_solver<double, 3, double>(
         &f,
         v,
         r,
@@ -52,7 +52,7 @@ int main(){
     std::cout<<"OUTPUT::"<<std::endl;
     std::cout<<memo -> size()<<std::endl;
     std::ofstream output;
-    output.open("./output/predcorr.txt");
+    output.open("./output/euler.txt");
     output << std::fixed << std::setprecision(16);
     for(size_t i=0; i<N; i++)
         output<<memo -> get_record(i)<<std::endl;

@@ -16,6 +16,9 @@ X = []
 Y = []
 T = []
 
+VX = []
+VY = []
+
 KINETIC = []
 POTENTIAL = []
 ENERGY = []
@@ -41,6 +44,9 @@ with open(sys.argv[1], "r") as file:
         
         X.append(x)
         Y.append(y)
+
+        VX.append(vx)
+        VY.append(vy)
         T.append(float(t))
 
         k = (vx**2 + vy**2 + vz**2) / 2
@@ -51,6 +57,7 @@ with open(sys.argv[1], "r") as file:
 
         ENERGY.append(KINETIC[-1] + POTENTIAL[-1])
         #points.append((x, y))
+print("End Reading")
 
 if "-gp" in sys.argv:
     fig, ax = plt.subplots(sharex=True, sharey=True)
@@ -98,11 +105,33 @@ if "-tbs" in sys.argv:
         "mid",
         "deviation"
     ]
+    tData = []
+
+    def coopl(attr, d, out):
+        res = [attr, float(np.min(d)), float(np.max(d)), float(np.max(d) - np.min(d))]
+        mid = float(np.sum(d) / len(d))
+        res.append(mid)
+        
+        det = np.vectorize(lambda x: (mid - x)**2)
+        dev = float(np.sqrt(np.sum(det(d)) / (len(d) * (len(d)-1))))
+
+        res.append(dev)
+
+        for i in range(1, len(res)):
+            res[i] = round(res[i], 6)
+
+        out.append(res)
+
+    coopl("$\\lvert r\\lvert$ [m]", np.sqrt(np.array(X)**2 + np.array(Y)**2), tData)
+    coopl("$\\lvert v\\lvert$ [m/s]", np.sqrt(np.array(VX)**2 + np.array(VY)**2), tData)
+    coopl("$\\lvert T\\lvert$ [J]", np.array(KINETIC), tData)
+    coopl("$\\lvert U\\lvert$ [J]", np.array(POTENTIAL), tData)
+    coopl("$\\lvert E\\lvert$ [J]", np.array(ENERGY), tData)
 
     totex.tabtex.convertFromData(
         TBF,
-        "stat",
-        "Simulated Data Statistics",
+        f"{NAME}-stat",
+        f"Simulated Data Statistics by {NAME}",
         tHeaders,
         tData
     )

@@ -147,3 +147,9 @@ images/euler-energy.eps
 images/euler-path-diforbit.eps
 images/euler-path-diforbit.pdf
 images/euler-path.eps
+output/euler-8000.txt
+output/predcorr-8000.txt
+output/verlet-8000.txt
+tables/euler-stat.tex
+tables/predcorr-stat.tex
+tables/verlet-stat.tex
